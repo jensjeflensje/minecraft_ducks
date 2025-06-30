@@ -36,6 +36,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /__w/minecraft_ducks/minecraft_ducks/target/minecraft_ducks-${{ steps.project.outputs.version }}.jar
+          asset_path: /__w/minecraft_ducks/minecraft_ducks/target/minecraft-ducks-${{ steps.project.outputs.version }}.jar
           asset_name: Ducks-${{ steps.project.outputs.version }}.jar
           asset_content_type: application/jar
