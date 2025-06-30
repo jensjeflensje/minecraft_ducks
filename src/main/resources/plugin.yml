@@ -1,0 +1,5 @@
+name: minecraft_ducks
+version: '1.0-SNAPSHOT'
+main: dev.jensderuiter.minecraft_ducks.DucksPlugin
+api-version: '1.21'
+authors: [ jensjeflensje ]
