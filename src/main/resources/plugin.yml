@@ -1,5 +1,7 @@
-name: minecraft_ducks
+name: Ducks
 version: '1.0-SNAPSHOT'
 main: dev.jensderuiter.minecraft_ducks.DucksPlugin
 api-version: '1.21'
 authors: [ jensjeflensje ]
+commands:
+  spawnduck:

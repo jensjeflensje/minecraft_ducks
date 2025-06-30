@@ -1,6 +1,5 @@
-package net.bingomc.spring_lobby_2025.quest.duck;
+package dev.jensderuiter.minecraft_ducks.duck;
 
-import net.bingomc.spring_lobby_2025.LobbyPlugin;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.ArmorStand;
@@ -8,11 +7,15 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
+
+/**
+ * DuckPart that functions as a seat for a player.
+ */
 public class DuckSeat extends DuckPart {
 
     private ArmorStand armorStand;
 
-    public DuckSeat() {
+    public DuckSeat(Location spawnLocation) {
         super(
                 new Offset(0, 0, 0, 0, 0, 0),
                 new Offset(0, 0, 0, 0, 0, 0),
@@ -21,7 +24,7 @@ public class DuckSeat extends DuckPart {
                 null
         );
 
-        this.armorStand = (ArmorStand) LobbyPlugin.getWorld().spawnEntity(LobbyPlugin.getWorld().getSpawnLocation(), EntityType.ARMOR_STAND);
+        this.armorStand = (ArmorStand) spawnLocation.getWorld().spawnEntity(spawnLocation.getWorld().getSpawnLocation(), EntityType.ARMOR_STAND);
         this.armorStand.setAI(false);
         this.armorStand.setGravity(true);
         this.armorStand.setSmall(true);

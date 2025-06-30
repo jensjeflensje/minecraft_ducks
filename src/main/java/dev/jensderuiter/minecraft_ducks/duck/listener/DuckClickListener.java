@@ -1,13 +1,8 @@
-package net.bingomc.spring_lobby_2025.quest.duck.listener;
+package dev.jensderuiter.minecraft_ducks.duck.listener;
 
-import net.bingomc.spring_lobby_2025.quest.QuestManager;
-import net.bingomc.spring_lobby_2025.quest.QuestType;
-import net.bingomc.spring_lobby_2025.quest.duck.Duck;
-import net.bingomc.spring_lobby_2025.quest.duck.DuckPart;
-import net.bingomc.spring_lobby_2025.quest.duck.DuckSeat;
-import net.bingomc.spring_lobby_2025.quest.npc.BingoNPC;
+import dev.jensderuiter.minecraft_ducks.duck.Duck;
+import dev.jensderuiter.minecraft_ducks.duck.DuckSeat;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Interaction;
 import org.bukkit.entity.Player;
@@ -15,9 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
-import java.util.Objects;
-
-import static net.bingomc.spring_lobby_2025.quest.duck.Duck.ducks;
+import static dev.jensderuiter.minecraft_ducks.duck.Duck.ducks;
 
 public class DuckClickListener implements Listener {
 
@@ -29,21 +22,21 @@ public class DuckClickListener implements Listener {
         Duck duck = ducks.get(interaction.getEntityId());
         if (duck == null) return;
 
-        if (!player.getInventory().getItemInMainHand().getType().equals(Material.BREAD)) {
-            duck.getParts().stream()
-                    .filter(DuckSeat.class::isInstance)
-                    .findAny()
-                    .ifPresent(part -> {
-                        player.getAttribute(Attribute.SCALE).setBaseValue(0.3);
-                        ((DuckSeat) part).take(player);
-                    });
-        } else {
-            player.getInventory().remove(Material.BREAD);
+        player.sendMessage(ChatColor.YELLOW + "Quack Quack");
 
-            player.sendMessage(ChatColor.YELLOW + "Quack Quack");
+        // lets the player sit on the duck if there isn't a passenger already
+        duck.getParts().stream()
+                .filter(DuckSeat.class::isInstance)
+                .findAny()
+                .ifPresent(part -> {
+                    // scale down the player to make sure
+                    // he's about the same size as the duck
+                    player.getAttribute(Attribute.SCALE).setBaseValue(0.3);
 
-            if (QuestManager.hasCompletedQuest(player, QuestType.FEED_DUCKS)) return;
-            QuestManager.completeQuestType(player, QuestType.FEED_DUCKS);
-        }
+                    // this method is always called, but this doesn't mean
+                    // the player is guaranteed a seat.
+                    // this method only does something when the duck doesn't have a passenger
+                    ((DuckSeat) part).take(player);
+                });
     }
 }

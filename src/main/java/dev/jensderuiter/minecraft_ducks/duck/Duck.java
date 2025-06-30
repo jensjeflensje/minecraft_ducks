@@ -1,11 +1,11 @@
-package net.bingomc.spring_lobby_2025.quest.duck;
+package dev.jensderuiter.minecraft_ducks.duck;
 
+import dev.jensderuiter.minecraft_ducks.DucksPlugin;
+import dev.jensderuiter.minecraft_ducks.duck.animation.DuckAnimation;
+import dev.jensderuiter.minecraft_ducks.duck.animation.Moveable;
 import lombok.Getter;
 import lombok.Setter;
-import net.bingomc.spring_lobby_2025.LobbyPlugin;
-import net.bingomc.spring_lobby_2025.quest.duck.animation.DuckAnimation;
-import net.bingomc.spring_lobby_2025.quest.duck.animation.Moveable;
-import org.bukkit.*;
+import org.bukkit.Location;
 import org.bukkit.entity.Interaction;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
@@ -15,6 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Base Duck class that handles parts and movement.
+ */
 public abstract class Duck implements Moveable {
 
     public static HashMap<Integer, Duck> ducks = new HashMap<>();
@@ -64,7 +67,7 @@ public abstract class Duck implements Moveable {
         this.chooseLocationTarget();
 
         this.task = new DuckRunnable(this);
-        this.task.runTaskTimer(LobbyPlugin.getInstance(), 0, TICK_DELAY);
+        this.task.runTaskTimer(DucksPlugin.getInstance(), 0, TICK_DELAY);
         ducks.put(interaction.getEntityId(), this);
     }
 

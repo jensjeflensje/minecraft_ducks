@@ -1,9 +1,9 @@
-package net.bingomc.spring_lobby_2025.quest.duck;
+package dev.jensderuiter.minecraft_ducks.duck;
 
+import dev.jensderuiter.minecraft_ducks.duck.animation.Moveable;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.bingomc.spring_lobby_2025.quest.duck.animation.Moveable;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
@@ -12,6 +12,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Transformation;
 import org.joml.Quaternionfc;
 
+/**
+ * A part of a Duck that's able to move around
+ * the center-location of the Duck by using its Offset.
+ */
 @Getter
 @Builder
 public class DuckPart implements Moveable {

@@ -1,4 +1,4 @@
-package net.bingomc.spring_lobby_2025.quest.duck.listener;
+package dev.jensderuiter.minecraft_ducks.duck.listener;
 
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;

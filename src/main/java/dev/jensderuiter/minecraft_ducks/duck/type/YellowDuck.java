@@ -1,19 +1,21 @@
-package net.bingomc.spring_lobby_2025.quest.duck.type;
+package dev.jensderuiter.minecraft_ducks.duck.type;
 
-import net.bingomc.spring_lobby_2025.quest.duck.Duck;
-import net.bingomc.spring_lobby_2025.quest.duck.DuckPart;
-import net.bingomc.spring_lobby_2025.quest.duck.DuckSeat;
-import net.bingomc.spring_lobby_2025.quest.duck.Offset;
-import net.bingomc.spring_lobby_2025.quest.duck.animation.WaveAnimation;
-import org.bukkit.Bukkit;
+import dev.jensderuiter.minecraft_ducks.duck.Duck;
+import dev.jensderuiter.minecraft_ducks.duck.DuckPart;
+import dev.jensderuiter.minecraft_ducks.duck.DuckSeat;
+import dev.jensderuiter.minecraft_ducks.duck.Offset;
+import dev.jensderuiter.minecraft_ducks.duck.animation.WaveAnimation;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.util.Vector;
 
+/**
+ * Simple implementation of Duck that looks like a rubber bath duck.
+ */
 public class YellowDuck extends Duck {
-    public YellowDuck() {
+    public YellowDuck(Location location) {
         super();
-        spawnLocation = new Location(Bukkit.getWorld("world"), -42.3, 17.9, -92.5);
+        spawnLocation = location;
 
         this.parts.add(DuckPart.builder()
                 .offset(new Offset(0, 0, 0, 0, 0, new Vector(0.45, 0.3, 0.45)))
@@ -57,7 +59,7 @@ public class YellowDuck extends Duck {
                 .build()
         );
 
-        this.parts.add(new DuckSeat());
+        this.parts.add(new DuckSeat(spawnLocation));
 
         this.animations.add(new WaveAnimation(this, 0.5, 1));
     }

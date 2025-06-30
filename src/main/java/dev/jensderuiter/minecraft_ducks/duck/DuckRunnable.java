@@ -1,8 +1,12 @@
-package net.bingomc.spring_lobby_2025.quest.duck;
+package dev.jensderuiter.minecraft_ducks.duck;
 
 import lombok.AllArgsConstructor;
 import org.bukkit.scheduler.BukkitRunnable;
 
+/**
+ * Runnable that calls the Duck#tick() function every tick.
+ * The Duck needs this to keep moving.
+ */
 @AllArgsConstructor
 public class DuckRunnable extends BukkitRunnable {
 

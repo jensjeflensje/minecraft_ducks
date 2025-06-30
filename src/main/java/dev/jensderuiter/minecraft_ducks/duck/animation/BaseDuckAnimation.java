@@ -1,4 +1,4 @@
-package net.bingomc.spring_lobby_2025.quest.duck.animation;
+package dev.jensderuiter.minecraft_ducks.duck.animation;
 
 public abstract class BaseDuckAnimation implements DuckAnimation {
 

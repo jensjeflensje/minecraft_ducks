@@ -1,7 +1,10 @@
-package net.bingomc.spring_lobby_2025.quest.duck;
+package dev.jensderuiter.minecraft_ducks.duck;
 
 import org.bukkit.util.Vector;
 
+/**
+ * Util class used to define the offset of a part from a Duck's center.
+ */
 public class Offset {
 
     public double x;

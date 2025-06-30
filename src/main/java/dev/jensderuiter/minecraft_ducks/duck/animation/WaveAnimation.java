@@ -1,7 +1,11 @@
-package net.bingomc.spring_lobby_2025.quest.duck.animation;
+package dev.jensderuiter.minecraft_ducks.duck.animation;
 
-import net.bingomc.spring_lobby_2025.quest.duck.Offset;
+import dev.jensderuiter.minecraft_ducks.duck.Offset;
 
+
+/**
+ * Animation that makes the Duck wave on the y-axis as if it's in waving water.
+ */
 public class WaveAnimation extends BaseDuckAnimation {
 
     private final double strenght;
